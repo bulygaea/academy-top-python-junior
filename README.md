@@ -18,6 +18,8 @@
   </ol>
 </nav>
 
+<p><big><tt><b><ins>ДОМАШНИЕ ЗАДАНИЯ В КОНЦЕ КАЖДОЙ ТЕМЫ</ins></b></tt></big></p>
+
 <h2 id="urls">Ссылки на установщики необходимых программ</h2>
 <ul>
   <li>Язык Python: <a href="https://www.python.org/ftp/python/3.12.0/python-3.12.0-amd64.exe">Windows Installer (64-bit)</a></li>
