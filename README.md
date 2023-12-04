@@ -24,7 +24,7 @@
 <ul>
   <li>Язык Python: <a href="https://www.python.org/ftp/python/3.12.0/python-3.12.0-amd64.exe">Windows Installer (64-bit)</a></li>
   <li>Если понадобится, ссылка на главную страницу Python: <a href="https://www.python.org/">python.org</a></li>
-  <li>PyCharm Community: <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html">Download</a></li>
+  <li>PyCharm Community: <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?code=PCC">Download</a></li>
   <li>Github Desktop: <a href="https://desktop.github.com/">Download</a></li>
 </ul>
 
