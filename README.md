@@ -22,9 +22,9 @@
 
 <h2 id="urls">Ссылки на установщики необходимых программ</h2>
 <ul>
-  <li>Язык Python: <a href="https://www.python.org/ftp/python/3.12.0/python-3.12.0-amd64.exe">Windows Installer (64-bit)</a></li>
+  <li>Язык Python (<b>обязательно</b> ставим галочки в нижней части окна установщика, когда оно только-только открылось): <a href="https://www.python.org/ftp/python/3.12.0/python-3.12.0-amd64.exe">Windows Installer (64-bit)</a></li>
   <li>Если понадобится, ссылка на главную страницу Python: <a href="https://www.python.org/">python.org</a></li>
-  <li>PyCharm Community: <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?code=PCC">Download</a></li>
+  <li>PyCharm Community (<b>обязательно</b> ставим <b>все</b> галочки!): <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?code=PCC">Download</a></li>
   <li>Github Desktop: <a href="https://desktop.github.com/">Download</a></li>
 </ul>
 
