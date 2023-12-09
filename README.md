@@ -211,7 +211,8 @@ else:
     print('Толя')
   </code>
 </pre>
-<p><a href="https://clck.ru/372NiR">Домашнее задание 3</a></p>
+<p><a href="https://clck.ru/372R7E">Домашнее задание 3</a></p>
+<p><a href="https://clck.ru/372NiR">Домашнее задание 4</a></p>
 
 <h2 id="turtle">Черепашья графика</h3>
 <b>Домашнее задание: </b>
