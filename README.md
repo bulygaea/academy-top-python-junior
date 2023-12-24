@@ -227,6 +227,126 @@ else:
 <p>Теоретический материал временно смотрим в учебных материалах. Домашнее задание прикреплено также в личном дневнике.</p>
 <b>Домашнее задание: </b>
 <h2 id="selenium">Знакомство с Selenium</h2>
-<b>Домашнее задание: БУДЕТ ОПУБЛИКОВАНО В ВОСКРЕСЕНЬЕ 23 ДЕКАБРЯ</b>
+<p><a href="https://disk.yandex.ru/i/GhPn44LQSnRN5g">Видеоурок по Selenium.</a></p>
+<p>Рассмотрим работу с модулем для работы с веб-браузерами. Напишем программу в PyCharm:</p>
+<pre data-lang="python">
+  <code>
+from selenium import webdriver
+  </code>
+</pre>
+<p>Заметьте, что Selenium подчеркивается красной чертой. Это происходит из-за того, что модуль не установлен. Чтобы установить его, воспользуемся функцией PyCharm. Нажмите один раз на слово Selenium, а затем на красную лампочку. Самый первый пункт будет предложением установить пакет Selenium. Нажмите на него и немного подождите.</p>
+<img src="https://disk.yandex.ru/i/eBEdHzJqckZ17g" alt="Скриншот PyCharm">
+<p>После установки начнем основую часть программы. Нам необходимо создать переменную, в которой будет храниться браузер. С помощью этой же переменной мы будем им управлять. В конце не забудем закрыть браузер.</p>
+<pre data-lang="python">
+  <code>
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+
+driver.close()
+  </code>
+</pre>
+<p>Вы заметите, что браузер открывается и моментально закрывается. Так происходит, потому что мы нигде не сказали, чтобы программа "зависла". Воспользуемся встроенным модулем <b>time</b>.</p>
+<pre data-lang="python">
+  <code>
+from selenium import webdriver
+import time
+
+driver = webdriver.Chrome()
+
+time.sleep(5)  # В скобках указано количество секунд, на которое программа "уснет"
+
+driver.close()
+  </code>
+</pre>
+<p>Отлично! Теперь браузер закрывается не сразу. В дальнейшем мы добавим функцию <code>input()</code>, которая ожидает ввода текста в консоли, из-за чего не позволяет переходить к следующим командам. И таким образом не позволим браузеру быстро закрываться.</p>
+<p>Попробуем открыть в браузере конкретную страницу.</p>
+<pre data-lang="python">
+  <code>
+from selenium import webdriver
+import time
+
+driver = webdriver.Chrome()
+
+driver.get('https://ya.ru')
+time.sleep(5)
+
+input()
+
+driver.close()
+  </code>
+</pre>
+<p>Обратите внимание, что браузер закроется либо по нажатию крестика, либо в консоли PyCharm нужно нажать на Enter.</p>
+<p>Теперь нам необходимо найти информацию о поисковой строке, чтобы наша программа также могла ее найти. Рассмотрим код поисковой строки. Для этого необходимо нажать на нее правой клавишей мыши и выбрать "Посмотреть код". Возможно, что это придется сделать дважды, если в коде страницы не откроется сразу тег "input".</p>
+<img src="https://disk.yandex.ru/i/K29a34MtPUkTYQ" alt="Код поисковой строки Яндекса">
+<p>Обратим внимание на тег "input". В нем много разной информации и некоторая может быть уникальной. Как правило уникальными являются <b>id</b>. По нему мы и будем искать поисковую строку в нашей программе.</p>
+<pre data-lang="python">
+  <code>
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+driver = webdriver.Chrome()
+
+driver.get('https://ya.ru')
+time.sleep(2)
+
+finder = driver.find_element(By.CSS_SELECTOR, '[id="text"]')
+
+input()
+
+driver.close()
+  </code>
+</pre>
+<p>В данной программе добавились две строки кода. Во-первых, мы делаем еще один импорт, в котором подгружаем такую команду, которая будет объяснять, по какому принципу мы ищем элемент поисковой строки на сайте. А именно, нас интересует CSS_SELECTOR. Он позволяет записать рядом в кавычках и квадратных скобках информацию, которая уникальна у искомого элемента. У командной строки мы заметили уникальный id. Чтобы найти его на странице, пишем <code>finder = driver.find_element(By.CSS_SELECTOR, '[id="text"]')</code>.</p>
+<p>Дальше нам необходимо вставить текст в эту поисковую строку. Пользуясь переменной finder, сделаем это:</p>
+<pre data-lang="python">
+  <code>
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+driver = webdriver.Chrome()
+
+driver.get('https://ya.ru')
+time.sleep(2)
+
+finder = driver.find_element(By.CSS_SELECTOR, '[id="text"]')
+finder.send_keys('ежидзе')
+
+input()
+
+driver.close()
+  </code>
+</pre>
+<p>Попробуйте запустить код.</p>
+<p>Теперь нам необходимо найти на странице код элемента кнопки "Найти". Заметим, что пока мы не начнем писать текст, этой кнопки как будто бы нет, но если Вы попробуете найти ее в коде элемента, то увидите, что на самом деле эта кнопка есть всегда, просто сначала она спрятана.</p>
+<p>Как и с поисковой строкой, нажмем на кнопку "Найти" правой клавишей мыши и выберем "Посмотреть код". Видим информацию о кнопке и предполагаем, что <code>type="submit"</code> есть только у нее.</p>
+<img src="https://disk.yandex.ru/i/2Plx8tyQvR4Psg" alt="Код кнопки Найти">
+<p>Найдем элемент по этой информации и нажнем на него.</p>
+<pre data-lang="python">
+  <code>
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+driver = webdriver.Chrome()
+
+driver.get('https://ya.ru')
+time.sleep(2)
+
+finder = driver.find_element(By.CSS_SELECTOR, '[id="text"]')
+finder.send_keys('ежидзе')
+
+button = driver.find_element(By.CSS_SELECTOR, '[type="submit"]')
+button.click()
+
+input()
+
+driver.close()
+  </code>
+</pre>
+<p>Запустите программу. Данный вариант является конечным.</p>
+<p><a href="https://disk.yandex.ru/i/3FxTthtc1e8AXg">Домашнее задание 8</a></p>
 <h2 id="list">Списки</h3>
 <b>Домашнее задание: </b>
