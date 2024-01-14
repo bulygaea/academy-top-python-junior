@@ -510,5 +510,5 @@ print(a[0:3])
 </table>
 
 <p>Дополнительно про списки: <a href="https://pythonworld.ru/tipy-dannyx-v-python/spiski-list-funkcii-i-metody-spiskov.html">Списки Python</a></p>
-<b>Домашнее задание 9: вот-вот будет</b>
-<b>Домашнее задание 10: вот-вот будет</b>
+<p><a href="https://clck.ru/37iynr">Домашнее задание 9</a></p>
+<p><a href="https://clck.ru/37izUJ">Домашнее задание 10</a></p>
